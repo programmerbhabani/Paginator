@@ -1,2 +1,2 @@
 # Paginator
-This project is regarding through how to use paginator function.
+This project is with refer to how to use paginator function.
