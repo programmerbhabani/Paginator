@@ -1,0 +1,15 @@
+.title
+{
+    font-family: "Agency FB";
+    padding: 10px;
+    font-size: 80px;
+    color: #a50f11;
+    font-weight: bold;
+    background-color: mediumseagreen;
+}
+.sub-title
+{
+    background-color: lightgreen;
+    color: crimson;
+    font-size: 30px;
+}

@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+  <head>
+      <link rel="stylesheet" href="{% static 'css/sample.css' %}">
+  </head>
+   <body bgcolor="#deb887">
+      <table align="center" border="2" width="1530">
+          <tr><th class="title" colspan="4">Paginator_Example</th></tr>
+          <tr>
+              <th width="150" class="sub-title">Idno</th>
+              <th width="200" class="sub-title">Name</th>
+              <th class="sub-title">Description</th>
+              <th width="150" class="sub-title">Date of join</th>
+          </tr>
+             {% if page %}
+                 {% for x in page %}
+                     <tr>
+                        <th>{{ x.id }}</th>
+                        <th>{{ x.name }}</th>
+                        <th>{{ x.desc }}</th>
+                        <th>{{ x.admission_date }}</th>
+                     </tr>
+                 {% endfor %}
+             {% else %}
+                 <tr><th>No Data Available</th></tr>
+              {% endif %}
+             <tr>
+                 <th colspan="4" style="padding: 10px">
+                     {% if page.has_previous %}
+                         <a href="{% url 'home' %}?page_no={{ page.previous_page_number }}">PREVIOUS</a>
+                         {% endif %}
+                     {% for x in page.paginator.page_range %}
+                         <a href="{% url 'home' %}?page_no={{ x }}" style="padding: 5px">
+                             {{ x }}
+                         </a>
+                      {% endfor %}
+                     {% if page.has_next %}
+                         <a href="{% url 'home' %}?page_no={{ page.next_page_number }}">NEXT</a>
+                     {% endif %}
+                 </th>
+             </tr>
+      </table>
+   </body>
+</html>
